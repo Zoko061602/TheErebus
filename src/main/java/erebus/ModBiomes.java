@@ -47,13 +47,13 @@ public class ModBiomes {
 	public static int savannahSubSteppeID;
 
 	public static void init() {
-		for (int id : new int[] { undergroundJungleID, volcanicDesertID, subterraneanSavannahID, elysianFieldsID, ulteriorOutbackID, fungalForestID, submergedSwampID, fieldsSubForestID }) {
-			if (id >= 128 || id < 0)
-				throw new IllegalArgumentException("Erebus biome IDs cannot be higher than 127 or smaller than 0!");
-			BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[id];
-			if (biome != null)
-				throw new IllegalArgumentException("Erebus can not use biome ID " + id + " because it's being used by " + biome + ". Please choose a different one.");
-		}
+		// for (int id : new int[] { undergroundJungleID, volcanicDesertID, subterraneanSavannahID, elysianFieldsID, ulteriorOutbackID, fungalForestID, submergedSwampID, fieldsSubForestID }) {
+		//	if (id >= 128 || id < 0)
+		//		throw new IllegalArgumentException("Erebus biome IDs cannot be higher than 127 or smaller than 0!");
+		//	BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[id];
+		//	if (biome != null)
+		//		throw new IllegalArgumentException("Erebus can not use biome ID " + id + " because it's being used by " + biome + ". Please choose a different one.");
+		// }
 
 		// CREATE BIOMES
 
@@ -66,10 +66,10 @@ public class ModBiomes {
 		submergedSwamp = new BiomeSubmergedSwamp(submergedSwampID);
 		fieldsSubForest = new BiomeElysianFields.BiomeElysianForest(fieldsSubForestID);
 
-		// MUTATIONS
+		/* MUTATIONS
 
 		undergroundJungle.createMutation();
-		volcanicDesert.createMutation();
+	    volcanicDesert.createMutation();
 		subterraneanSavannah.createMutation();
 		elysianFields.createMutation();
 		ulteriorOutback.createMutation();
@@ -77,6 +77,7 @@ public class ModBiomes {
 		submergedSwamp.createMutation();
 
 		fieldsSubForest.createMutation();
+		*/
 	}
 
 	public static void postInit() {
