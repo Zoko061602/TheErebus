@@ -44,6 +44,7 @@ public class ConfigHandler {
 	private void syncConfigs() {
 		readEntityDimensionsFile();
 
+		ModBiomes.generateMutations = config.get("Biomes","Generate Terrain Variations",ModBiomes.generateMutations).getBoolean(ModBiomes.generateMutations);
 		ModBiomes.undergroundJungleID = config.get("Biomes", "Underground Jungle", ModBiomes.undergroundJungleID).getInt(ModBiomes.undergroundJungleID);
 		ModBiomes.volcanicDesertID = config.get("Biomes", "Volcanic Desert", ModBiomes.volcanicDesertID).getInt(ModBiomes.volcanicDesertID);
 		ModBiomes.subterraneanSavannahID = config.get("Biomes", "Subterranean Savannah", ModBiomes.subterraneanSavannahID).getInt(ModBiomes.subterraneanSavannahID);
@@ -69,10 +70,10 @@ public class ConfigHandler {
 		glowshrooms = config.get(Configuration.CATEGORY_GENERAL, "Add Glowshrooms to World generation", true).getBoolean(true);
 		generateVents = config.get(Configuration.CATEGORY_GENERAL, "Generate natural swap vents", true).getBoolean(true);
 		netherWidows = config.get(Configuration.CATEGORY_GENERAL, "Spawn Black Widows in Nether", true).getBoolean(true);
-		
+
 		mobAttackDamageMultiplier = config.get("Mob Modifiers", "Mob Attack Damage Multipier", 1).getInt(1);
 		mobHealthMultipier = config.get("Mob Modifiers", "Mob Health Multiplier", 1).getInt(1);
-		
+
 		disableThaumcraft = config.get("Integration", "Disable Thaumcraft integration", false).getBoolean(false);
 		disableFMP = config.get("Integration", "Disable Forge Multipart integration", false).getBoolean(false);
 

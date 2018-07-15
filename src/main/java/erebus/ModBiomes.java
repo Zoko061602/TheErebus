@@ -14,6 +14,8 @@ import net.minecraft.world.biome.BiomeGenBase;
 public class ModBiomes {
 	public static WeightedList<BiomeBaseErebus> biomeList = new WeightedList<BiomeBaseErebus>();
 
+	public static boolean generateMutations=true;
+
 	public static BiomeBaseErebus undergroundJungle;
 	public static BiomeBaseErebus volcanicDesert;
 	public static BiomeBaseErebus subterraneanSavannah;
@@ -47,13 +49,14 @@ public class ModBiomes {
 	public static int savannahSubSteppeID;
 
 	public static void init() {
-		// for (int id : new int[] { undergroundJungleID, volcanicDesertID, subterraneanSavannahID, elysianFieldsID, ulteriorOutbackID, fungalForestID, submergedSwampID, fieldsSubForestID }) {
-		//	if (id >= 128 || id < 0)
-		//		throw new IllegalArgumentException("Erebus biome IDs cannot be higher than 127 or smaller than 0!");
-		//	BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[id];
-		//	if (biome != null)
-		//		throw new IllegalArgumentException("Erebus can not use biome ID " + id + " because it's being used by " + biome + ". Please choose a different one.");
-		// }
+		 for (int id : new int[] { undergroundJungleID, volcanicDesertID, subterraneanSavannahID, elysianFieldsID, ulteriorOutbackID, fungalForestID, submergedSwampID, fieldsSubForestID }) {
+			if(generateMutations)
+			 if (id >= 128 || id < 0)
+				throw new IllegalArgumentException("Erebus biome IDs cannot be higher than 127 or smaller than 0!");
+			BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[id];
+			if (biome != null)
+				throw new IllegalArgumentException("Erebus can not use biome ID " + id + " because it's being used by " + biome + ". Please choose a different one.");
+		 }
 
 		// CREATE BIOMES
 
@@ -66,8 +69,9 @@ public class ModBiomes {
 		submergedSwamp = new BiomeSubmergedSwamp(submergedSwampID);
 		fieldsSubForest = new BiomeElysianFields.BiomeElysianForest(fieldsSubForestID);
 
-		/* MUTATIONS
+		// MUTATIONS
 
+        if(generateMutations) {
 		undergroundJungle.createMutation();
 	    volcanicDesert.createMutation();
 		subterraneanSavannah.createMutation();
@@ -75,9 +79,8 @@ public class ModBiomes {
 		ulteriorOutback.createMutation();
 		fungalForest.createMutation();
 		submergedSwamp.createMutation();
-
 		fieldsSubForest.createMutation();
-		*/
+        }
 	}
 
 	public static void postInit() {
